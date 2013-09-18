@@ -4,7 +4,6 @@ import sys
 import pybedtools as pbt
 import argparse
 import numpy as np
-import matplotlib as mpl
 from collections import defaultdict
 
 
@@ -55,11 +54,16 @@ def main():
 
     args = parser.parse_args()
 
-    sys.stderr('Making windows...\n')
+    if args.bam is None or args.window_size is None or args.fasta_file is None:
+        sys.exit('EXITING. You must specify -b, -f, and -w.\n')
+
+    sys.stderr.write('Making windows...\n')
     windows_fn = make_windows(args)
-    sys.stderr('Computing GC content in each window...\n')
+    
+    sys.stderr.write('Computing GC content in each window...\n')
     nuc_content_fn = get_gc(args, windows_fn)
-    sys.stderr('Tabulating coverage in each window...\n')
+    
+    sys.stderr.write('Tabulating coverage in each window...\n')
     raw_cov = get_rawcov(args, windows_fn)
 
     # join the GC and counts 
@@ -96,7 +100,7 @@ def main():
 
 
     # cleaning up.
-    sys.stderr('Cleaning up...\n')
+    sys.stderr.write('Cleaning up...\n')
     os.remove(windows_fn)
     os.remove(nuc_content_fn)
 

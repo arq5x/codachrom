@@ -24,7 +24,7 @@ def main():
     parser = argparse.ArgumentParser(prog='chromcopy')
     parser.add_argument("-v", "--version", help="Installed chromcopy version",
                         action="version")
-    parser.add_argument("-1", dest='depth_file1', help="The numeration depth file.")
+    parser.add_argument("-1", dest='depth_file1', help="The numerator depth file.")
     parser.add_argument("-2", dest='depth_file2', help="The denominator depth file.")
 
     args = parser.parse_args()

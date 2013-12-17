@@ -11,10 +11,10 @@ class DepthRecord(object):
         self.start = int(fields[1])
         self.end = int(fields[2])
         self.depth = int(fields[3])
-        self.gc = float(fields[4])
-        self.gc_mean = float(fields[5])
-        self.gc_stdv = float(fields[6])
-        self.Z = float(fields[7])
+        #self.gc = float(fields[4])
+        #self.gc_mean = float(fields[5])
+        #self.gc_stdv = float(fields[6])
+        #self.Z = float(fields[7])
 
 def main():
 
